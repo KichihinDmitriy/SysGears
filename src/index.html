@@ -14,14 +14,15 @@
 
     <!-- Task 1 App to convert between distance units -->
 
-    <div class="container-1">
+    <div class="container-1 app-container border border-primary">
+
       <h2>Conversion between distance units</h2>
 
       <span>convert from</span>
 
       <div class="input-group">
         <input class="form-control input-from" type="number">
-        <select class="btn btn-light select-from">
+        <select class="btn btn-secondary select-from">
           <option>select</option>
         </select>
       </div>
@@ -30,10 +31,22 @@
 
       <div class="input-group">
         <input class="form-control input-to" type="disabled">
-        <select class="btn btn-light select-to">
+        <select class="btn btn-secondary select-to">
           <option>select</option>
         </select>
       </div>
+
+    </div>
+
+    <!-- Task 3 Programmable questionnaire -->
+
+    <div class="container-2 app-container border border-primary">
+
+      <h2 class="question"></h2>
+
+      <button type="button" data-answer="0" class="answer-first btn btn-primary btn-block"></button>
+      <button type="button" data-answer="1" class="answer-second btn btn-secondary btn-block"></button>
+
     </div>
 
   </body>
