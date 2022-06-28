@@ -12,7 +12,7 @@ const units = {
     "ft": 304.8,
     "mm": 1,
     "yd": 914.4,
-    "km": 1e+6
+    "km": 1e+6,
 };
 
 const selectFrom = document.querySelector('.select-from');
@@ -21,10 +21,18 @@ const inputFrom = document.querySelector('.input-from');
 const inputTo = document.querySelector('.input-to');
 
 const unitsArray = Object.keys(units);
-const listOfUnits = unitsArray.reduce((acc, unit) => acc + `<option>${unit}</option>`, '');
 
-selectFrom.innerHTML = listOfUnits;
-selectTo.innerHTML = listOfUnits;
+for (let unit of unitsArray) {
+    const options = document.createElement("option");
+    options.textContent = unit;
+    selectFrom.append(options);
+};
+
+for (let unit of unitsArray) {
+    const options = document.createElement("option");
+    options.textContent = unit;
+    selectTo.append(options);
+};
 
 const convert = function () {
 

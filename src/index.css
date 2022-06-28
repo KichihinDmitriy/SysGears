@@ -10,6 +10,10 @@
     padding: 30px 20px;
 }
 
+.conversion-header {
+    margin-bottom: 30px;
+}
+
 .container-2 {
     position: absolute;
     margin-top: 310px;
@@ -24,8 +28,4 @@
 
 .question {
     margin-bottom: 50px;
-}
-
-.no-question {
-    margin-top: 50px;
 }
