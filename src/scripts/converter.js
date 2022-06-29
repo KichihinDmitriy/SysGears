@@ -2,7 +2,7 @@
 
 const data = {
     "distance": {"unit": "m", "value": ""},
-    "convert_to": "m"
+    "convert_to": "m",
 };
 
 const units = {
@@ -35,27 +35,29 @@ for (let unit of unitsArray) {
 };
 
 const convert = function () {
-
     let convertValue = data.distance.value;
     let convertFrom;
     let convertTo;
 
     for (const key in units) {
-
-        if(key === data.distance.unit) {
+        if (key === data.distance.unit) {
             convertFrom = units[key];
         }
 
-        if(key === data.convert_to) {
+        if (key === data.convert_to) {
             convertTo = units[key];
         }
     };
 
     const convertResult = convertValue * (convertFrom / convertTo);
 
-    inputTo.value = convertResult.toFixed(2);
+    if (!Number.isInteger(convertResult) && convertResult !== 0) {
+        inputTo.value = convertResult.toFixed(2);
+    } else if (convertResult !== 0) {
+        inputTo.value = convertResult;
+    };
     
-    const dataOutput = {"unit": data.convert_to, "value": convertResult.toFixed(2)};
+    const dataOutput = {"unit": data.convert_to, "value": inputTo.value};
     console.log(dataOutput);
 };
 
@@ -63,10 +65,6 @@ inputFrom.addEventListener('input', (e) => {
     data.distance.value = e.target.value;
     convert();
 });
-// inputTo.addEventListener('input', (e) => {
-//     data.distance.value = e.target.value;
-//     convert();
-// });
 selectFrom.addEventListener('change', (e) => {
     data.distance.unit = e.target.value;
     convert();
